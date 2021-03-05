@@ -1,0 +1,22 @@
+<header class="header">
+  <span class="header__text">TODO list</span>
+  <button type="submit" class="header__delete-btn"></button>
+</header>
+
+
+<div class="todos" *ngFor='let todo of todos'>
+
+  <label class="todos__lable">
+    <input type="checkbox" class="todos__checkbox">
+    <span class="todos__content">{{todo.content}}</span>
+  </label>
+
+</div>
+
+
+<div class="add-task">
+  <button type="submit" class="add-task__btn">+</button>
+  <input type=" text" name="add-todo" class="add-task__todo">
+</div>
+
+<div class="test"></div>
