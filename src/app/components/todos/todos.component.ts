@@ -41,9 +41,7 @@ export class TodosComponent {
     }
   }
 
-  errorTodo() {
 
-  }
 
 }
 
