@@ -1,3 +1,7 @@
+.todos .checked {
+  font-style: italic;
+}
+// --------------------------------------------------
 //Start header/ delete button
 .header {
   padding: 5px 10px;
@@ -31,24 +35,76 @@
 
   &__text {
     opacity: 0.4;
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 //end header
 
+.type-todo,
+.typing-todo {
+  padding: 0px 10px;
+  font-size: 13px;
+}
+
+// --------------------------------------------------
 // strat TODOS
-.todos {
+
+.list {
+  list-style-type: none;
+  padding-inline-start: 0px;
+  padding: 0px 10px;
+}
+
+.todo-list {
   margin-bottom: 10px;
 
-  &__lable {
+  &__check {
+    padding-left: 1.2em;
     display: flex;
+    align-items: center;
+    height: 25px;
+  }
+
+  &__checkbox {
+    position: absolute;
+    appearance: none;
+    //icon
+    margin-left: -1.2em;
+    width: 1.35em;
+    height: 1.35em;
+    background-image: url(./../../../assets/img/off3.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:focus {
+      outline: none;
+    }
+    &:checked {
+      margin-left: -1.2em;
+      width: 1.35em;
+      height: 1.35em;
+      background-image: url(./../../../assets/img/on.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
   &__content {
     display: block;
-    padding-left: 10px;
+    padding-left: 20px;
+  }
+  &__delete-icon {
+    font-size: 35px;
+    padding-bottom: 5px;
+    margin-left: auto;
+    color: gray;
+    transition: all 0.3s;
+    &:hover {
+      color: black;
+    }
   }
 }
 
+// --------------------------------------------------
 //add Button
 .add-task {
   padding-top: 40px;

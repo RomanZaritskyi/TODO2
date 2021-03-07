@@ -1,44 +1,52 @@
 import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit } from '@angular/core';
-import { Todo } from './../../models/Todo'
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss']
 })
-export class TodosComponent implements OnInit {
-  todos = [];
+export class TodosComponent {
 
-  constructor() { }
+  newTodo: string
+  todos: any
+  todosObj: any
 
-  ngOnInit(): void {
+  constructor() {
+    this.newTodo = '';
+    this.todos = [];
 
-    this.todos = [
-      {
-        compleated: false,
-        content: 'Покормить собаку'
-      },
-      {
-        compleated: false,
-        content: 'Построить дом'
-      },
-      {
-        compleated: false,
-        content: 'Помыть машину'
-      },
-      {
-        compleated: false,
-        content: 'Купить продукты, молоко, соль, сахар, вода, макароны, мясо, моцарелла'
-      },
-      {
-        compleated: true,
-        content: 'Составить список'
-      }
-    ]
   }
 
+  addTodo(event) {
+    this.todosObj = {
+      newTodo: this.newTodo,
+      compleated: false
+    }
+    this.todos.push(this.todosObj);
+    this.newTodo = '';
+    event.preventDefault();
+
+  }
+
+  deleteTodo(index) {
+    this.todos.splice(index, 1);
+  }
+
+  deleteSelectedTodos() {
+    for (var i = (this.todos.length - 1); i > -1; i--) {
+      if (this.todos[i].completed) {
+        this.todos.splice(i, 1);
+      }
+    }
+  }
+
+  errorTodo() {
+
+  }
 
 }
+
+
 
 
